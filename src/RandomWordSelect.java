@@ -1,4 +1,3 @@
-
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -40,6 +39,8 @@ public class RandomWordSelect {
     public static String GetWord() {
         if (wordList.size() < 1)
             ParseWordList();
+        if (usedWords.size() == wordList.size())
+            return "You have completed the word list";
         Random random = new Random();
         String word = wordList.get(random.nextInt(wordList.size()));
         if (usedWords.contains(word))
